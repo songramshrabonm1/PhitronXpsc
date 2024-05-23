@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long 
+int main(){
+    ll a,b;
+    cin>>a>>b;
+    if(a == b){
+        cout<<"=";
+        return 0;
+    }
+    double n , m ; 
+    n = b*log(a);
+    m = a*log(b);
+    if(n>m){
+        cout<<">";
+        return 0 ;
+    }else if(n<m)
+        cout<<"<";
+    else 
+        cout<<"=";
+        
+    
+    return 0;
+}
