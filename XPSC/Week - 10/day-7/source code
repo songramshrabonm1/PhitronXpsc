@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+using namespace std;
+template <typename T> using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+int main(){
+    
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        pbds<int>p;
+        vector<pair<int,int>> v;
+        map<int,int> mp;
+        for(int i = 0 ;i<n; i++){
+            int a,b;
+            cin>>a>>b;
+           // p.insert(b);
+            v.push_back({a,b});
+            mp[a] = b;
+            
+        }
+        sort(v.rbegin(),v.rend());
+        long long int ans = 0;
+        for(int i = 0; i<n ; i++){
+            int scnd = v[i].second;
+        
+            p.insert(scnd);
+            
+            ans+= p.order_of_key(scnd);
+            
+            
+        }
+        cout<<ans<<"\n";
+    }
+}
