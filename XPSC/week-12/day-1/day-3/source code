@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t
+    ;cin>>t;
+    while(t--){
+        int n,k,x;
+        cin>>n>>k>>x;
+        vector<int> poly(k);
+        vector<int> mon(x);
+
+        for(int i = 0 ; i<k ;i ++){
+            cin>>poly[i];
+        }
+        for(int i = 0 ; i<x ; i++){
+            cin>>mon[i];
+        }
+        int Total = n ; 
+        int index1 = 0 , index2 = 0 ; 
+        vector<int> v;
+        bool flag = true;
+        while(index1 <k || index2 <x){
+            if(poly[index1] == 0 && index1<k ){
+                v.push_back(0);
+                index1++;
+                Total++;
+            }else if(poly[index1] <= Total && poly[index1] != 0 && index1<k){
+                v.push_back(poly[index1]);
+                index1++;
+                
+            }else if(mon[index2] == 0 && index2 <x ){
+                v.push_back(0);
+                index2++;
+                Total++;
+            }else if(mon[index2] <= Total && mon[index2]!= 0 && index2 <x){
+                v.push_back(mon[index2]);
+                index2++;
+                
+            }else{
+                cout<<-1<<"\n";
+                flag = false;
+                break;
+            }
+        }
+        if(!flag)continue;
+        else{
+            for(int i = 0 ; i<v.size(); i++){
+                cout<<v[i]<<" ";
+            }
+            cout<<"\n";
+        }
+    }
+}
