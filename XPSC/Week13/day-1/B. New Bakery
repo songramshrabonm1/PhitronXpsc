@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll n,a,b,sum;
+        cin>>n>>a>>b;
+        if(a>=b){
+            sum = a*n; 
+            cout<<sum<<"\n";
+            continue;
+        }
+
+        // if(n>=a){
+            sum = (b*(b+1))/2;
+            ll operationHoise = b - a;
+           
+            if(operationHoise>n){
+                ll koitaOperationBeshiHoiche = operationHoise - n;
+                ll extraOperation = b - operationHoise ; 
+                extraOperation+=koitaOperationBeshiHoiche;
+                ll z = (extraOperation*(extraOperation+1))/2;
+                sum-=z;
+                cout<<sum<<"\n";
+                continue;
+            }
+            ll  extraOperation = b - operationHoise;
+            ll extra = (extraOperation*(extraOperation+1))/2;
+            sum -= extra;
+            ll bakiAcheOperation = n - operationHoise;
+            sum +=(bakiAcheOperation*a);
+            cout<<sum<<"\n";
+            continue;
+            
+        // }
+
+
+
+    }
+}
