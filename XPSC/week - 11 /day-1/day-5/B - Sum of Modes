@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int 
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+	    ll n;
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    ll ans = n*(n+1)/2;
+	    ll z = 0 , o = 0 ; 
+	    unordered_map<ll, ll>mp;
+	    mp[0] = 1;
+	    for(int i = 0; i<n; i++){
+	        if(s[i] == '0')z++;
+	        else o++;
+	        if(mp.find(z-o) != mp.end()){
+	            ans+=mp[z-o];
+	            mp[z-o]++;
+	            continue;
+	        }
+	        mp[z-o]= 1;
+	    }
+	    cout<<ans<<"\n";
+	    
+	}
+
+}
