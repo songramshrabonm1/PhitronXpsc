@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int  
+#define vec vector<ll>
+#define str string
+int main(){
+    int Testcase;
+    cin>>Testcase;
+    while(Testcase--){
+        int n;cin>>n;
+        str s;
+        cin>>s;
+        int cnt = 0 ;
+        bool dot = false ; 
+         for(int i = 0 ; i<=n -3; i++){
+                    if(s[i] == '.' && s[i+1] == '.' && s[i+2] == '.'){
+                        dot = true;
+                    }
+         }
+         if(dot == true){
+            cout<<2<<"\n";
+            continue;
+         }
+         for(int i = 0 ; i<n ; i++){
+            if(s[i] == '.'){
+                cnt++;
+            }
+         }       
+         cout<<cnt<<"\n";
+    }
+}
